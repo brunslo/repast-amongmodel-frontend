@@ -23,41 +23,49 @@ export default class Charts extends Component {
   render() {
     const charts = this.state.charts;
 
-    let auctions_auctions = [];
-    let auctions_completed = [];
-    let auctions_developer = [];
-    let auctions_remaining = [];
-
-    let aar = [];
     let ticks = [];
-    let propertyValue = [];
 
-    let ownershipState_investor = [];
-    let ownershipState_owner = [];
-    let ownershipState_renter = [];
+    let propertyValue_averagePropertyValue = [];
+    let propertyValue_marketValue = [];
+    let propertyValue_soldValue = [];
 
     let normalisedOs_renter = [];
     let normalisedOs_investor = [];
     let normalisedOs_owner = [];
 
+    let ownershipState_investor = [];
+    let ownershipState_owner = [];
+    let ownershipState_renter = [];
+
+    let aar = [];
+
+    let auctions_auctions = [];
+    let auctions_completed = [];
+    let auctions_developer = [];
+    let auctions_remaining = [];
+
     if (charts) {
       charts.forEach((tick) => {
-        auctions_auctions.push(tick.auctions_auctions);
-        auctions_completed.push(tick.auctions_completed);
-        auctions_developer.push(tick.auctions_developer);
-        auctions_remaining.push(tick.auctions_remaining);
-
-        aar.push(tick.aar);
-        propertyValue.push(tick.propertyValue);
         ticks.push(tick.tick);
+
+        propertyValue_averagePropertyValue.push(tick.propertyValue_averagePropertyValue);
+        propertyValue_marketValue.push(tick.propertyValue_marketValue);
+        propertyValue_soldValue.push(tick.propertyValue_soldValue);
+
+        normalisedOs_renter.push(tick.normalisedOs_renter);
+        normalisedOs_investor.push(tick.normalisedOs_investor);
+        normalisedOs_owner.push(tick.normalisedOs_owner);
 
         ownershipState_investor.push(tick.ownershipState_investor);
         ownershipState_owner.push(tick.ownershipState_owner);
         ownershipState_renter.push(tick.ownershipState_renter);
 
-        normalisedOs_renter.push(tick.normalisedOs_renter);
-        normalisedOs_investor.push(tick.normalisedOs_investor);
-        normalisedOs_owner.push(tick.normalisedOs_owner);
+        aar.push(tick.aar);
+
+        auctions_auctions.push(tick.auctions_auctions);
+        auctions_completed.push(tick.auctions_completed);
+        auctions_developer.push(tick.auctions_developer);
+        auctions_remaining.push(tick.auctions_remaining);
       });
 
       return (
@@ -137,10 +145,26 @@ export default class Charts extends Component {
                   datasets: [
                     {
                       label: 'Property Value',
-                      data: propertyValue,
+                      data: propertyValue_averagePropertyValue,
                       fill: false,
                       backgroundColor: 'rgba(245, 34, 34, 0.6)',
                       borderColor:'rgba(245, 34, 34, 0.6)',
+                      borderWidth: 1
+                    },
+                    {
+                      label: 'Property Sold Value',
+                      data: propertyValue_soldValue,
+                      fill: false,
+                      backgroundColor: 'rgba(245, 245, 34, 0.6)',
+                      borderColor:'rgba(245, 245, 34, 0.6)',
+                      borderWidth: 1
+                    },
+                    {
+                      label: 'Property Book Value',
+                      data: propertyValue_marketValue,
+                      fill: false,
+                      backgroundColor: 'rgba(34, 245, 34, 0.6)',
+                      borderColor:'rgba(34, 245, 34, 0.6)',
                       borderWidth: 1
                     }
                   ]
