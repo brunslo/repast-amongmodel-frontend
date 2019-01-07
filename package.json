@@ -1,6 +1,6 @@
 {
-  "name": "repast-among-model-frontend",
-  "version": "0.1.0",
+  "name": "repast-amongmodel-frontend",
+  "version": "0.1.0-SNAPSHOT",
   "private": true,
   "main": "index.js",
   "babel": {
