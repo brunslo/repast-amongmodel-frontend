@@ -1,0 +1,15 @@
+#root {
+  color: #aaa;
+}
+
+input[type="number"], input[type="text"], textarea {
+  background-color : #000;
+  color: #2b9def;
+  border: ridge #999 1px;
+  text-align: center;
+}
+
+.parameters-header, .charts-container-header {
+  padding: 20px;
+  color: #f96109
+}
